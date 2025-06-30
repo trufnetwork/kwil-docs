@@ -18,13 +18,13 @@ or the [Production Deployment guide](/docs/node/production).
 Ensure that you have the following prerequisites installed:
 
 - [Docker](https://docs.docker.com/get-started/get-docker/)
-- [`kwild`](https://github.com/kwilteam/kwil-db/releases)
+- [`kwild`](https://github.com/trufnetwork/kwil-db/releases)
 - An Ethereum address that can be designated as the database's owner
 
 ## Installation
 
 To run either a single Kwil node, or a network of nodes, you will need to download the `kwild` binary.  Kwil releases
-binaries on [Github](https://github.com/kwilteam/kwil-db/releases).
+binaries on [Github](https://github.com/trufnetwork/kwil-db/releases).
 
 Kwil also requires a dedicated PostgreSQL host configured for `kwild`.
 
@@ -135,7 +135,7 @@ docker container rm -f -v node0 node1 node2
 
 Given a clone of the source code repository and development tooling, there are
 other automated options for starting nodes for testing in the
-[README](https://github.com/kwilteam/kwil-db/blob/main/README.md). In
+[README](https://github.com/trufnetwork/kwil-db/blob/main/README.md). In
 particular, a Docker Compose service is defined in `deployments/compose/kwil`
 that automatically starts containers for both a single node with `--autogen` and
 a separate container for `postgres`. For a multi-node development environment,

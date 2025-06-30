@@ -7,13 +7,13 @@ description: "Common Extension APIs"
 slug: /extensions/api-reference/common
 ---
 
-The following can be found in package `github.com/kwilteam/kwil-db/common`.
+The following can be found in package `github.com/trufnetwork/kwil-db/common`.
 
 ## Service
 
 ```go
 import (
-	"github.com/kwilteam/kwil-db/core/log"
+	"github.com/trufnetwork/kwil-db/core/log"
 )
 
 // Service provides access to general application information to
@@ -32,7 +32,7 @@ type Service struct {
 
 ```go
 import (
-	sql "github.com/kwilteam/kwil-db/common/sql"
+	sql "github.com/trufnetwork/kwil-db/common/sql"
 )
 
 // App is an application that can modify and query the local database
@@ -55,8 +55,8 @@ type App struct {
 import (
 	"context"
 
-	sql "github.com/kwilteam/kwil-db/common/sql"
-	"github.com/kwilteam/kwil-db/core/types"
+	sql "github.com/trufnetwork/kwil-db/common/sql"
+	"github.com/trufnetwork/kwil-db/core/types"
 )
 
 // Engine is an interface for the main database engine that is responsible for deploying

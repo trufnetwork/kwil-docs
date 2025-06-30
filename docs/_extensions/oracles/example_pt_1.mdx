@@ -8,7 +8,7 @@ slug: /extensions/oracle-example-part-1
 ---
 
 In this tutorial, we will create a resolution that can credit accounts with the networks native gas token. This example is based off of the
-`credit_account` resolution found in the [default Kwil implementation](https://github.com/kwilteam/kwil-db/tree/v0.7.1/extensions/resolutions/credit/credit.go). It is purely for example purposes, since the default implementation
+`credit_account` resolution found in the [default Kwil implementation](https://github.com/trufnetwork/kwil-db/tree/v0.7.1/extensions/resolutions/credit/credit.go). It is purely for example purposes, since the default implementation
 is already available in the Kwil network.
 
 ## Prerequisites
@@ -82,10 +82,10 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/kwilteam/kwil-db/common"
-	"github.com/kwilteam/kwil-db/common/functions"
-	"github.com/kwilteam/kwil-db/core/types/serialize"
-	"github.com/kwilteam/kwil-db/extensions/resolutions"
+	"github.com/trufnetwork/kwil-db/common"
+	"github.com/trufnetwork/kwil-db/common/functions"
+	"github.com/trufnetwork/kwil-db/core/types/serialize"
+	"github.com/trufnetwork/kwil-db/extensions/resolutions"
 )
 
 const CreditAccountEventType = "credit_eth_account"
@@ -147,7 +147,7 @@ The last step is to register the resolution extension with the Kwil node. This i
 package main
 
 import (
-	"github.com/kwilteam/kwil-db/extensions/resolutions"
+	"github.com/trufnetwork/kwil-db/extensions/resolutions"
 )
 
 const CreditAccountEventType = "credit_account"
@@ -179,10 +179,10 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/kwilteam/kwil-db/common"
-	"github.com/kwilteam/kwil-db/common/functions"
-	"github.com/kwilteam/kwil-db/core/types/serialize"
-	"github.com/kwilteam/kwil-db/extensions/resolutions"
+	"github.com/trufnetwork/kwil-db/common"
+	"github.com/trufnetwork/kwil-db/common/functions"
+	"github.com/trufnetwork/kwil-db/core/types/serialize"
+	"github.com/trufnetwork/kwil-db/extensions/resolutions"
 )
 
 const CreditAccountEventType = "credit_eth_account"

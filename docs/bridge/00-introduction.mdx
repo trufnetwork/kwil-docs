@@ -30,11 +30,11 @@ Users deposit and, when authorized, claim tokens from the escrow smart contract.
 
 ### Escrow Contract
 
-The escrow contract ([`RewardDistributor.sol`](https://github.com/kwilteam/rewards_contracts/blob/main/contracts/RewardDistributor.sol)) is the main Solidity contract that manages the tokens to be bridged between the EVM chain and the Kwil database. When a user transfers tokens to the escrow contract, Kwil nodes will listen for the `transfer` event and mint the equivalent amount of tokens on the Kwil database to the wallet address that escrowed the tokens.
+The escrow contract ([`RewardDistributor.sol`](https://github.com/trufnetwork/rewards_contracts/blob/main/contracts/RewardDistributor.sol)) is the main Solidity contract that manages the tokens to be bridged between the EVM chain and the Kwil database. When a user transfers tokens to the escrow contract, Kwil nodes will listen for the `transfer` event and mint the equivalent amount of tokens on the Kwil database to the wallet address that escrowed the tokens.
 
 When the SAFE Multi-sig Wallet posts a token distribution to the escrow smart contract, users can claim their tokens from the escrow contract.
 
-You can find the security audit for the escrow contract [here](https://github.com/kwilteam/rewards_contracts/blob/main/docs/RewardDistributor_HashEx_Audit.pdf).
+You can find the security audit for the escrow contract [here](https://github.com/trufnetwork/rewards_contracts/blob/main/docs/RewardDistributor_HashEx_Audit.pdf).
 
 ### Kwil Node with SAFE Signer
 

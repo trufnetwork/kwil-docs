@@ -17,7 +17,7 @@ Below is a quick overview of how to use the Kwil JS SDK. For more detailed infor
 The Kwil JS SDK can be installed using npm.
 
 ```bash
-npm install @kwilteam/kwil-js@beta ethers
+npm install @trufnetwork/kwil-js@beta ethers
 ```
 
 ## Initialize
@@ -37,7 +37,7 @@ The Kwil SDK is compatible with [Ethers v5](https://docs.ethers.org/v5/) and [Et
 The `WebKwil` and `NodeKwil` constructors take a configuration object. The only required fields are `kwilProvider` and `chainId`; however, there are additional configuration options available:
 
 ```js
-import { WebKwil, Utils } from '@kwilteam/kwil-js';
+import { WebKwil, Utils } from '@trufnetwork/kwil-js';
 
 const kwil = new WebKwil({
     kwilProvider: 'http://localhost:8484';
@@ -87,7 +87,7 @@ To use an ed25519 signature:
 
 ```javascript
 import nacl from "tweetnacl";
-import { KwilSigner } from "@kwilteam/kwil-js";
+import { KwilSigner } from "@trufnetwork/kwil-js";
 
 // create keypair and signer
 const keys = nacl.sign.keyPair();
@@ -158,7 +158,7 @@ const res = await kwil.execute(
 If using TypeScript, you can import interfaces for each API from the `types` namespace.
 
 ```typescript
-import { Types } from '@kwilteam/kwil-js'
+import { Types } from '@trufnetwork/kwil-js'
 
 const actionBody: Types.ActionBody = {...}
 const callBody: Types.CallBody = { ... }

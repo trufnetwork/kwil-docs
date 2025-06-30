@@ -17,7 +17,7 @@ function CodeTabs({ tabsData }) {
     );
 }
 
-const initJsWeb = `import { KwilSigner } from '@kwilteam/kwil-js';
+const initJsWeb = `import { KwilSigner } from '@trufnetwork/kwil-js';
 import { BrowserProvider } from 'ethers';
 
 // get ethers signer
@@ -30,7 +30,7 @@ const identifier = await signer.getAddress();
 // create kwil signer
 const kwilSigner = new KwilSigner(signer, identifier);`
 
-const initJsNode = `import { KwilSigner } from '@kwilteam/kwil-js';
+const initJsNode = `import { KwilSigner } from '@trufnetwork/kwil-js';
 import { Wallet } from 'ethers';
 
 // create ethers signer

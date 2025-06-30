@@ -10,11 +10,11 @@ const GitHubStarButton = () => {
             }}
         >
             <GitHubButton 
-                href="https://github.com/kwilteam/kwil-db" 
+                href="https://github.com/trufnetwork/kwil-db" 
                 data-color-scheme="no-preference: light; light: light; dark: dark_dimmed;" 
                 data-icon="octicon-star" 
                 data-size="large" 
-                aria-label="Star kwilteam/kwil-db on GitHub"
+                aria-label="Star trufnetwork/kwil-db on GitHub"
             >
                 Star kwil-db
             </GitHubButton>
@@ -24,12 +24,12 @@ const GitHubStarButton = () => {
                 }}
             />
             <GitHubButton 
-                href="https://github.com/kwilteam" 
+                href="https://github.com/trufnetwork" 
                 data-color-scheme="no-preference: light; light: light; dark: dark_dimmed;" 
                 data-size="large" 
-                aria-label="Follow @kwilteam on GitHub"
+                aria-label="Follow @trufnetwork on GitHub"
             >
-                Follow @kwilteam
+                Follow @trufnetwork
             </GitHubButton>
         </div>
     );

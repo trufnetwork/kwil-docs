@@ -52,7 +52,7 @@ module.exports = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/kwilteam/docs/tree/main',
+            'https://github.com/trufnetwork/kwil-docs/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -78,7 +78,7 @@ module.exports = {
         items: [
           { to: 'https://discord.com/invite/HzRPZ59Kay/', label: 'Need Help?', position: 'right' },
           {
-            href: 'https://github.com/kwilteam',
+            href: 'https://github.com/trufnetwork',
             label: 'GitHub',
             position: 'right',
           },
@@ -105,7 +105,7 @@ module.exports = {
             items: [
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/KwilTeam',
+                href: 'https://twitter.com/trufnetwork',
               },
               {
                 label: 'Discord',

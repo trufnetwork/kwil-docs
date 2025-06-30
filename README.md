@@ -1,6 +1,6 @@
 # Contributing changes to Kwil Docs
 
-Like other Kwil sources, [Kwil docs](https://github.com/kwilteam/docs) is an open source repository hosted on GitHub, and we welcome pull requests into our repo.
+Like other Kwil sources, [Kwil docs](https://github.com/trufnetwork/kwil-docs) is an open source repository hosted on GitHub, and we welcome pull requests into our repo.
 
 Kwil docs uses [Docusaurus 2](https://docusaurus.io/) as our online document management system.
 
@@ -89,7 +89,7 @@ After you've tested your changes:
 
 ## Issuing a Pull Request
 
-Return to the Kwil docs home page in GitHub and navigate to [Pull Requests](https://github.com/kwilteam/docs/pulls).
+Return to the Kwil docs home page in GitHub and navigate to [Pull Requests](https://github.com/trufnetwork/kwil-docs/pulls).
 
 Click the create pull request button, add a brief description of the changes made, including a motivation for why this will benefit the Kwil community, and then finally click the Create pull request button.
 

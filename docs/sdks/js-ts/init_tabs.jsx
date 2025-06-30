@@ -17,14 +17,14 @@ function CodeTabs({ tabsData }) {
     );
 }
 
-const initJsWeb = `import { WebKwil } from '@kwilteam/kwil-js';
+const initJsWeb = `import { WebKwil } from '@trufnetwork/kwil-js';
 
 const kwil = new WebKwil({
     kwilProvider: "kwil_provider_endpoint",
     chainId: "your_kwil_chain_id"
 });`
 
-const initJsNode = `import { NodeKwil } from '@kwilteam/kwil-js';
+const initJsNode = `import { NodeKwil } from '@trufnetwork/kwil-js';
 
 const kwil = new kwiljs.NodeKwil({
     kwilProvider: "kwil_provider_endpoint",

@@ -7,13 +7,13 @@ description:  "Kuneiform Precompile Extension APIs"
 slug: /extensions/api-reference/precompiles
 ---
 
-The following can be found in package `github.com/kwilteam/kwil-db/extensions`.
+The following can be found in package `github.com/trufnetwork/kwil-db/extensions`.
 
 ## Initializer
 
 ```go
 import (
-    "github.com/kwilteam/kwil-db/common"
+    "github.com/trufnetwork/kwil-db/common"
 )
 
 // Initializer initializes a new instance of a precompile.
@@ -30,7 +30,7 @@ type Initializer func(ctx *DeploymentContext, service *common.Service, metadata 
 
 ```go
 import (
-    "github.com/kwilteam/kwil-db/common"
+    "github.com/trufnetwork/kwil-db/common"
 )
 
 // Instance is a named initialized instance of a precompile. It is
@@ -52,7 +52,7 @@ type Instance interface {
 ```go
 import (
     "context"
-    "github.com/kwilteam/kwil-db/core/types"
+    "github.com/trufnetwork/kwil-db/core/types"
 )
 
 // DeploymentContext is the context for a dataset deployment

@@ -13,7 +13,7 @@ The listener will be configured to listen to a specific contract address, and wi
 This tutorial uses concepts and code from the resolution extension introduced in this [part 1: example Kwil credits](/docs/extensions/oracle-example-part-1).
 
 **This tutorial is for example purposes only, and should not be used in production.** Production implementations should account for transient network failures,
-subscription disconnections, Ethereum reorgs, and other edge cases. For a production-ready implementation of this event listener, please refer to the [Kwil EVM Deposits Listener](<https://github.com/kwilteam/kwil-db/tree/v0.7.1/extensions/listeners/eth_deposits>) that is
+subscription disconnections, Ethereum reorgs, and other edge cases. For a production-ready implementation of this event listener, please refer to the [Kwil EVM Deposits Listener](<https://github.com/trufnetwork/kwil-db/tree/v0.7.1/extensions/listeners/eth_deposits>) that is
 included in all Kwil nodes by default.
 
 ## Prerequisites
@@ -44,8 +44,8 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	ethcommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/kwilteam/kwil-db/extensions/listeners"
-	"github.com/kwilteam/kwil-db/extensions/resolutions/credit"
+	"github.com/trufnetwork/kwil-db/extensions/listeners"
+	"github.com/trufnetwork/kwil-db/extensions/resolutions/credit"
 )
 
 // contractABIStr is the ABI of the smart contract the listener listens to.
@@ -124,7 +124,7 @@ import (
 
 	ethcommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/kwilteam/kwil-db/extensions/listeners"
+	"github.com/trufnetwork/kwil-db/extensions/listeners"
 )
 
 // EthListener is an event listener that listens to ethereum events and broadcasts corresponding
@@ -203,7 +203,7 @@ Register the event listener with the Kwil node. This is done by calling the `Reg
 package main
 
 import (
-	"github.com/kwilteam/kwil-db/extensions/listeners"
+	"github.com/trufnetwork/kwil-db/extensions/listeners"
 )
 
 func init() {
@@ -236,9 +236,9 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/kwilteam/kwil-db/common"
-	"github.com/kwilteam/kwil-db/extensions/listeners"
-	"github.com/kwilteam/kwil-db/extensions/resolutions/credit"
+	"github.com/trufnetwork/kwil-db/common"
+	"github.com/trufnetwork/kwil-db/extensions/listeners"
+	"github.com/trufnetwork/kwil-db/extensions/resolutions/credit"
 )
 
 // EthListener is an event listener that listens to ethereum events and broadcasts corresponding

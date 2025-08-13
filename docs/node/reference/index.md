@@ -26,6 +26,7 @@ Kwil node and utilities
 ### SEE ALSO
 
 * [kwild admin](/docs/ref/kwild/admin)	 - Administrative commands using the secure admin RPC service
+* [kwild blacklist](/docs/ref/kwild/blacklist)	 - Manage a node's peer blacklist
 * [kwild block](/docs/ref/kwild/block)	 - Leader block execution commands
 * [kwild consensus](/docs/ref/kwild/consensus)	 - Functions for dealing with consensus update proposals
 * [kwild key](/docs/ref/kwild/key)	 - Tools for private key generation and inspection

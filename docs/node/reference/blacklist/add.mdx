@@ -1,0 +1,66 @@
+---
+sidebar_position: 1
+sidebar_label: "add"
+id: "kwild-blacklist-add"
+title: "kwild blacklist add"
+description: "Add a peer to the node's blacklist"
+slug: /ref/kwild/blacklist/add
+---
+
+## kwild blacklist add
+
+Add a peer to the node's blacklist
+
+### Synopsis
+
+Add a node to the node's blacklist with an optional reason and duration. The nodeID must be in the format HEX#secp256k1 or HEX#ed25519.
+
+Blacklisted peers are prevented from connecting to your node and will be disconnected if currently connected. Blacklist entries are automatically persisted across node restarts.
+
+```
+kwild blacklist add <nodeID> [flags]
+```
+
+### Examples
+
+```
+# Add a peer permanently to the blacklist
+kwild blacklist add 0226b3ff29216dac187cea393f8af685ad419ac9644e55dce83d145c8b1af213bd#secp256k1
+
+# Add a peer with a reason
+kwild blacklist add 0226b3ff29216dac187cea393f8af685ad419ac9644e55dce83d145c8b1af213bd#secp256k1 --reason="malicious behavior"
+
+# Add a peer temporarily for 1 hour
+kwild blacklist add 0226b3ff29216dac187cea393f8af685ad419ac9644e55dce83d145c8b1af213bd#secp256k1 --reason="connection issues" --duration="1h"
+```
+
+### Options
+
+```
+      --duration string   duration to blacklist the peer (e.g., "1h", "30m", "24h"). Leave empty for permanent blacklisting
+  -h, --help              help for add
+      --output string     the format for command output - either 'text' or 'json' (default "text")
+      --reason string     reason for blacklisting the peer
+```
+
+### Options inherited from parent commands
+
+```
+  -r, --root string   root directory (default "~/.kwild")
+```
+
+### Duration Format
+
+The duration flag accepts Go duration format:
+- `1h` - 1 hour
+- `30m` - 30 minutes  
+- `24h` - 24 hours
+- `2h30m` - 2 hours and 30 minutes
+
+Leave the duration empty or set to `0` for permanent blacklisting.
+
+### SEE ALSO
+
+* [kwild blacklist](/docs/ref/kwild/blacklist)	 - Manage a node's peer blacklist
+* [kwild blacklist list](/docs/ref/kwild/blacklist/list)	 - List blacklisted peers
+* [kwild blacklist remove](/docs/ref/kwild/blacklist/remove)	 - Remove a peer from the blacklist

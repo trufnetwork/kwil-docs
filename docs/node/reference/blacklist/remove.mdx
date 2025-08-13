@@ -1,0 +1,57 @@
+---
+sidebar_position: 3
+sidebar_label: "remove"
+id: "kwild-blacklist-remove"
+title: "kwild blacklist remove"
+description: "Remove a peer from the blacklist"
+slug: /ref/kwild/blacklist/remove
+---
+
+## kwild blacklist remove
+
+Remove a peer from the blacklist
+
+### Synopsis
+
+Remove a node from the node's blacklist. The nodeID must be in the format HEX#secp256k1 or HEX#ed25519.
+
+Once removed, the peer will be allowed to connect to your node again (subject to other connection policies like whitelisting in private mode).
+
+```
+kwild blacklist remove <nodeID> [flags]
+```
+
+### Examples
+
+```
+# Remove a peer from the blacklist
+kwild blacklist remove 0226b3ff29216dac187cea393f8af685ad419ac9644e55dce83d145c8b1af213bd#secp256k1
+
+# Remove a peer and show output in JSON format
+kwild blacklist remove 0226b3ff29216dac187cea393f8af685ad419ac9644e55dce83d145c8b1af213bd#secp256k1 --output json
+```
+
+### Options
+
+```
+  -h, --help            help for remove
+      --output string   the format for command output - either 'text' or 'json' (default "text")
+```
+
+### Options inherited from parent commands
+
+```
+  -r, --root string   root directory (default "~/.kwild")
+```
+
+### Notes
+
+- Removing a peer from the blacklist does not automatically establish a connection to that peer
+- The peer must still satisfy other connection requirements (whitelist in private mode, available connection slots, etc.)
+- This command works for both manually blacklisted and automatically blacklisted peers
+
+### SEE ALSO
+
+* [kwild blacklist](/docs/ref/kwild/blacklist)	 - Manage a node's peer blacklist
+* [kwild blacklist add](/docs/ref/kwild/blacklist/add)	 - Add a peer to the node's blacklist
+* [kwild blacklist list](/docs/ref/kwild/blacklist/list)	 - List blacklisted peers

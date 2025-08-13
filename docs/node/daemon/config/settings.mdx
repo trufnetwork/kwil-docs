@@ -113,6 +113,33 @@ This section outlines configurations for the P2P service, which manages peer-to-
 
 - `p2p.target_connections`: Specifies the desired number of peer connections. The node will aim to maintain this number by establishing new connections or disconnecting from existing ones.
 
+#### Peer Blacklisting
+
+The peer blacklisting functionality provides operators with tools to manage problematic peers and improve network stability:
+
+- `p2p.blacklist.enable`: Enable peer blacklisting functionality (default: `true`). When enabled, operators can manually blacklist peers using CLI commands, and the system can automatically blacklist peers based on connection behavior.
+
+- `p2p.blacklist.auto_blacklist_on_max_retries`: Automatically blacklist peers that exhaust connection retries (default: `true`). When a peer fails to connect after the maximum number of retry attempts, it will be automatically blacklisted to prevent further connection attempts and resource waste.
+
+- `p2p.blacklist.auto_blacklist_duration`: Duration to blacklist peers that exhaust connection retries (default: `1h`). Set to `0` for permanent blacklisting. This setting only applies to automatically blacklisted peers; manually blacklisted peers can be configured with custom durations via CLI commands.
+
+##### Automatic Blacklisting Behavior
+
+When `auto_blacklist_on_max_retries` is enabled, peers that exhaust the maximum connection retry attempts (typically 500 attempts) are automatically blacklisted with the reason "connection_exhaustion". This prevents:
+
+- **Resource waste** from repeatedly attempting failed connections
+- **Network instability** caused by persistent connection failures  
+- **Rediscovery loops** where peers are removed but rediscovered through PEX
+
+The automatic blacklisting uses a temporary duration (default 1 hour) rather than permanent blacklisting, allowing problematic peers to be reconsidered after a cooling-off period. Operators can adjust this duration or set it to `0` for permanent automatic blacklisting.
+
+##### Operational Considerations
+
+- **Persistence**: Blacklist data is automatically persisted across node restarts and survives configuration changes
+- **Priority**: Blacklisted peers are prevented from connecting regardless of whitelist status
+- **Monitoring**: Use `kwild blacklist list` to monitor both manual and automatic blacklist entries
+- **Management**: Use the [`kwild blacklist`](/docs/ref/kwild/blacklist) commands to manually manage the blacklist
+
 ### Consensus
 
 The Consensus configuration allows fine-tuning of the Roadrunner consensus protocol for the Kwil node. Adjusting these settings impacts block production rates, network usage, and catch-up times.

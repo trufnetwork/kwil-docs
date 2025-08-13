@@ -1,0 +1,64 @@
+---
+sidebar_position: 2
+sidebar_label: "list"
+id: "kwild-blacklist-list"
+title: "kwild blacklist list"
+description: "List blacklisted peers"
+slug: /ref/kwild/blacklist/list
+---
+
+## kwild blacklist list
+
+List blacklisted peers
+
+### Synopsis
+
+List all peers currently in the node's blacklist. This includes both manually blacklisted peers and automatically blacklisted peers (if auto-blacklisting is enabled).
+
+The output shows the peer ID, blacklist reason, when it was blacklisted, whether it's permanent or temporary, and the expiration time for temporary entries.
+
+```
+kwild blacklist list [flags]
+```
+
+### Examples
+
+```
+# List all blacklisted peers in text format
+kwild blacklist list
+
+# List all blacklisted peers in JSON format
+kwild blacklist list --output json
+```
+
+### Options
+
+```
+  -h, --help            help for list
+      --output string   the format for command output - either 'text' or 'json' (default "text")
+```
+
+### Options inherited from parent commands
+
+```
+  -r, --root string   root directory (default "~/.kwild")
+```
+
+### Output Format
+
+**Text Output:**
+The text format displays a table with the following columns:
+- **Peer ID**: The full peer identifier (pubkey#keytype)
+- **Reason**: Why the peer was blacklisted
+- **Blacklisted At**: When the peer was added to the blacklist
+- **Type**: "Permanent" or "Temporary"
+- **Expires At**: Expiration time (only for temporary entries)
+
+**JSON Output:**
+The JSON format provides structured data with the same information, suitable for programmatic processing.
+
+### SEE ALSO
+
+* [kwild blacklist](/docs/ref/kwild/blacklist)	 - Manage a node's peer blacklist
+* [kwild blacklist add](/docs/ref/kwild/blacklist/add)	 - Add a peer to the node's blacklist
+* [kwild blacklist remove](/docs/ref/kwild/blacklist/remove)	 - Remove a peer from the blacklist

@@ -121,16 +121,16 @@ The peer blacklisting functionality provides operators with tools to manage prob
 
 - `p2p.blacklist.auto_blacklist_on_max_retries`: Automatically blacklist peers that exhaust connection retries (default: `true`). When a peer fails to connect after the maximum number of retry attempts, it will be automatically blacklisted to prevent further connection attempts and resource waste.
 
-- `p2p.blacklist.auto_blacklist_duration`: Duration in nanoseconds to blacklist peers that exhaust connection retries (default: `3600000000000` = 1 hour). Set to `0` for permanent blacklisting. This setting only applies to automatically blacklisted peers; manually blacklisted peers can be configured with custom durations via CLI commands.
+- `p2p.blacklist.auto_blacklist_duration`: Duration to blacklist peers that exhaust connection retries (default: `"1h"`). Uses human-readable duration strings. Set to `"0s"` or `"0"` for permanent blacklisting. This setting only applies to automatically blacklisted peers; manually blacklisted peers can be configured with custom durations via CLI commands.
 
-Example configurations:
+##### Configuration Examples
 
 ```toml title=config.toml
-# Default temporary blacklisting (1 hour = 3,600,000,000,000 nanoseconds)
+# Default temporary blacklisting (1 hour)
 [p2p.blacklist]
 enable = true
 auto_blacklist_on_max_retries = true
-auto_blacklist_duration = 3600000000000
+auto_blacklist_duration = "1h"
 ```
 
 ```toml title=config.toml
@@ -138,14 +138,26 @@ auto_blacklist_duration = 3600000000000
 [p2p.blacklist]
 enable = true
 auto_blacklist_on_max_retries = true
-auto_blacklist_duration = 0
+auto_blacklist_duration = "0s"
 ```
 
-Common duration values in nanoseconds:
-- 1 minute = `60000000000`
-- 30 minutes = `1800000000000`
-- 1 hour = `3600000000000`
-- 24 hours = `86400000000000`
+```toml title=config.toml
+# Custom duration (30 minutes)
+[p2p.blacklist]
+enable = true
+auto_blacklist_on_max_retries = true
+auto_blacklist_duration = "30m"
+```
+
+##### Supported Duration Formats
+
+- `"30s"` - 30 seconds
+- `"5m"` - 5 minutes
+- `"1h"` - 1 hour (default)
+- `"2h30m"` - 2 hours and 30 minutes
+- `"1h30m45s"` - 1 hour, 30 minutes, and 45 seconds
+- `"24h"` - 24 hours
+- `"0s"` or `"0"` - Permanent blacklist
 
 ##### Automatic Blacklisting Behavior
 

@@ -45,7 +45,34 @@ kwil-cli call-action get-account --rpc-auth
 
 # Call the action 'get-account' and authenticate with Kwil Gateway
 kwil-cli call-action get-account --gateway-auth
+
+# Call an action with a NUMERIC parameter (note the quotes to prevent shell interpretation)
+kwil-cli call-action get-balance 'numeric(78,0):1000'
+
+# Call an action with a named NUMERIC parameter (note the quotes)
+kwil-cli call-action get-balance --param 'amount:numeric(78,0)=1000'
 ```
+
+:::tip Shell Quoting
+When using parameters with special characters like parentheses (e.g., `numeric(10,5)`, `uuid`, arrays with `[]`),
+always **wrap the parameter in quotes** to prevent shell interpretation:
+
+```bash
+# Correct - with quotes
+kwil-cli call-action get-balance 'numeric(78,0):1000'
+kwil-cli call-action get-balance --param 'amount:numeric(78,0)=1000'
+
+# Incorrect - without quotes (will cause shell errors)
+kwil-cli call-action get-balance numeric(78,0):1000
+```
+
+This applies to all shells (bash, zsh, fish, etc.) and is especially important for:
+- NUMERIC types with precision/scale: `numeric(precision,scale)`
+- Array types: `text[]`, `int[]`, `numeric(10,5)[]`
+- Complex array values: `[value1, value2]`
+
+Use single quotes (`'...'`) for simplicity, or double quotes (`"..."`) if you need variable expansion.
+:::
 
 ### Options
 

@@ -37,7 +37,30 @@ kwil-cli exec-sql --file /path/to/file.sql
 
 # Execute an insert statement with parameters
 kwil-cli exec-sql "INSERT INTO my_table (id, name) VALUES ($id, $name)" --param id:int=1 --param name:text=foo
+
+# Execute an insert with a NUMERIC parameter (note the quotes)
+kwil-cli exec-sql "INSERT INTO balances (account, amount) VALUES ($acc, $amt)" --param acc:text=user1 --param 'amt:numeric(78,0)=1000.5'
 ```
+
+:::tip Shell Quoting
+When using parameters with special characters like parentheses (e.g., `numeric(10,5)`, arrays with `[]`),
+always **wrap the parameter in quotes** to prevent shell interpretation:
+
+```bash
+# Correct - with quotes
+kwil-cli exec-sql "INSERT INTO t (val) VALUES ($v)" --param 'v:numeric(78,0)=1000'
+
+# Incorrect - without quotes (will cause shell errors)
+kwil-cli exec-sql "INSERT INTO t (val) VALUES ($v)" --param v:numeric(78,0)=1000
+```
+
+This applies to all shells (bash, zsh, fish, etc.) and is especially important for:
+- NUMERIC types with precision/scale: `numeric(precision,scale)`
+- Array types: `text[]`, `int[]`, `numeric(10,5)[]`
+- Complex array values: `[value1, value2]`
+
+Use single quotes (`'...'`) for simplicity, or double quotes (`"..."`) if you need variable expansion.
+:::
 
 ### Options
 

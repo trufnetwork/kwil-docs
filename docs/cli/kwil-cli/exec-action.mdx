@@ -53,7 +53,38 @@ kwil-cli exec-action register --csv /path/to/file.csv --csv-mapping name:0 --csv
 # Execute the action 'register' with a CSV file, but override all ages to be 10
 # Assume the same action signature and CSV file as above
 kwil-cli exec-action register --csv /path/to/file.csv --csv-mapping name:0 --param age:int=10
+
+# Execute with a NUMERIC type parameter (note the quotes to prevent shell interpretation)
+# Assume the action signature TRANSFER($amount numeric(78, 0))
+kwil-cli exec-action transfer 'numeric(78,0):1000.5'
+
+# Execute with a named NUMERIC parameter (note the quotes)
+kwil-cli exec-action transfer --param 'amount:numeric(78,0)=1000.5'
+
+# Execute with a NUMERIC array parameter (note the quotes)
+kwil-cli exec-action batch_transfer 'numeric(10,2)[]:[100.5, 200.75, 300.00]'
 ```
+
+:::tip Shell Quoting
+When using parameters with special characters like parentheses (e.g., `numeric(10,5)`, `uuid`, arrays with `[]`),
+always **wrap the parameter in quotes** to prevent shell interpretation:
+
+```bash
+# Correct - with quotes
+kwil-cli exec-action transfer 'numeric(78,0):1000.5'
+kwil-cli exec-action transfer --param 'amount:numeric(78,0)=1000.5'
+
+# Incorrect - without quotes (will cause shell errors)
+kwil-cli exec-action transfer numeric(78,0):1000.5
+```
+
+This applies to all shells (bash, zsh, fish, etc.) and is especially important for:
+- NUMERIC types with precision/scale: `numeric(precision,scale)`
+- Array types: `text[]`, `int[]`, `numeric(10,5)[]`
+- Complex array values: `[value1, value2]`
+
+Use single quotes (`'...'`) for simplicity, or double quotes (`"..."`) if you need variable expansion.
+:::
 
 ### Options
 
